@@ -24,6 +24,7 @@ docker-build-from-scratch: docker-init ## Build all docker images from scratch, 
 	$(DOCKER_COMPOSE) build --pull --no-cache --parallel $(CONTAINER) && \
 	$(DOCKER_COMPOSE) up -d --force-recreate $(CONTAINER)
 	$(DOCKER_COMPOSE) exec -u node $(CONTAINER) chmod +x ./.docker/install.sh
+	$(DOCKER_COMPOSE) exec -u node $(CONTAINER) ./.docker/install.sh
 
 .PHONY: docker-test
 docker-test: docker-init docker-up ## Run the infrastructure tests for the docker setup
@@ -34,6 +35,7 @@ docker-pre-build:
 	$(DOCKER_COMPOSE) build --parallel $(CONTAINER) && \
 	$(DOCKER_COMPOSE) up -d --force-recreate $(CONTAINER)
 	$(DOCKER_COMPOSE) exec -u node $(CONTAINER) chmod +x ./.docker/install.sh
+	$(DOCKER_COMPOSE) exec -u node $(CONTAINER) ./.docker/install.sh
 
 .PHONY: docker-build
 docker-build: docker-init ## Build all docker images. Build a specific image by providing the service name via: make docker-build CONTAINER=<service>
