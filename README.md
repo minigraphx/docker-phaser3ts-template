@@ -1,6 +1,9 @@
-# Phaser 3 TypeScript Project Template
+# Phaser 3 Docker TypeScript Project Template
 
 This quick-start project template combines Phaser 3 with [TypeScript](https://www.typescriptlang.org/) and uses [Rollup](https://rollupjs.org) for bundling.
+runs npm run watch in docker machine, so no local nodejs is required
+
+The Debug Project can be viewed on Host Port 8080.<br>
 
 ## Requirements
 
@@ -12,7 +15,7 @@ This quick-start project template combines Phaser 3 with [TypeScript](https://ww
 |---------|-------------|
 | `npm install` | Install project dependencies |
 | `npm run watch` | Build project and open web server running project, watching for changes |
-| `npm run dev` | Builds project and open web server, but do not watch for changes |
+| `npm run dev` | Build project and open web server but do not watch for changes |
 | `npm run build` | Builds code bundle with production settings (minification, no source maps, etc..) |
 
 ## Writing Code
@@ -20,10 +23,8 @@ This quick-start project template combines Phaser 3 with [TypeScript](https://ww
 After cloning the repo, run `npm install` from your project directory. Then, you can start the local development
 server by running `npm run watch`. The first time you run this you should see the following demo run:
 
-![Screenshot](screenshot.png "Phaser 3 Example")
-
 After starting the development server with `npm run watch`, you can edit any files in the `src` folder
-and Rollup will automatically recompile and reload your server (available at `http://localhost:10001`
+and Rollup will automatically recompile and reload your server (available at `http://localhost:8080`
 by default).
 
 ## Configuring Rollup
